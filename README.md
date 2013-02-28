@@ -1,18 +1,17 @@
 # meteorMusicAlbum - coding dojo II
 
-> install meteor:
+* install meteor:
 ```
 curl https://install.meteor.com | sh
 ```
 
-> download project sources
+* download project sources
 ```
 git clone ...
 ```
 
-> start app
+* start app
 ```
 cd ./meteorMusicAlbum
 meteor
 ```
-This file was modified by JetBrains WebStorm 5.0.4 for binding GitHub repository
