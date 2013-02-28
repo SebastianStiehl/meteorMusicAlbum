@@ -1,19 +1,18 @@
 if (Meteor.isClient) {
-  Template.hello.greeting = function () {
-    return "Welcome to meteorMusicAlbum.";
-  };
+    Template.insertion.attributes = [
+        {label: "Artist", name: "musicArtist"},
+        {label: "Year", name: "releaseYear"}
+    ];
 
-  Template.hello.events({
-    'click input' : function () {
-      // template data, if any, is available in 'this'
-      if (typeof console !== 'undefined')
-        console.log("You pressed the button");
-    }
-  });
+    Template.insertion.events({
+        'click input[type="button"]': function () {
+            console.log(123);
+        }
+    });
 }
 
 if (Meteor.isServer) {
-  Meteor.startup(function () {
-    // code to run on server at startup
-  });
+    Meteor.startup(function () {
+        // code to run on server at startup
+    });
 }
