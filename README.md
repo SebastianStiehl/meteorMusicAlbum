@@ -7,7 +7,7 @@ curl https://install.meteor.com | sh
 
 * download project sources
 ```
-git clone ...
+git clone https://github.com/5oc/meteorMusicAlbum.git
 ```
 
 * start app
