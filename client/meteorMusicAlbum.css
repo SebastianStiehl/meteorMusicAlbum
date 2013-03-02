@@ -4,8 +4,7 @@
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+html, body, div, span, applet, object, iframe, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
 small, strike, strong, sub, sup, tt, var,
@@ -67,4 +66,27 @@ body {
 label > span {
     min-width: 100px;
     display: inline-block;
+}
+
+section {
+    margin-left: 20px;
+}
+
+ul {
+    margin-bottom: 10px;
+    width: 400px;
+}
+
+.list {
+    padding: 10px;;
+    background-color: #eee;
+    border-radius: 4px;
+}
+
+.list, .list span {
+    cursor: pointer;
+}
+
+.list:hover {
+    background-color: rgba(148, 255, 0, 0.43);
 }

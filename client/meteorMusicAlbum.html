@@ -1,0 +1,52 @@
+<head>
+    <title>music album app</title>
+</head>
+
+<body>
+    <h1>music album app</h1>
+    <section>
+        <h3>list</h3>
+        {{> musicList}}
+    </section>
+    <section id="remove">
+        <h3>remove</h3>
+        {{> removeMusic}}
+    </section>
+    <section>
+        <h3>add</h3>
+        {{> addMusic}}
+    </section>
+</body>
+
+<template name="removeMusic">
+    <input name="{{inputName}}" type="text" />
+    <button class="remove">remove</button>
+</template>
+
+<template name="addMusic">
+    <ul>
+        {{#eachKey itemAttributes}}
+            <li>{{> itemAttribute}}</li>
+        {{/eachKey}}
+    </ul>
+    <button class="add">add</button>
+</template>
+
+<template name="itemAttribute">
+    <label>
+        <span>{{value.label}}:</span>
+        <input name="{{key}}" type="text" />
+    </label>
+</template>
+
+<template name="musicList">
+    {{#each musicItems}}
+        <ul class="list">
+            {{#eachKey this}}
+                {{#if this.value.label}}
+                    <li><label><span>{{this.value.label}}</span>: <span class="{{this.key}}">{{this.value.value}}</span></label></li>
+                {{/if}}
+            {{/eachKey}}
+        </ul>
+    {{/each}}
+</template>

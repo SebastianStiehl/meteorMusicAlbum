@@ -1,0 +1,1 @@
+MusicItems = new Meteor.Collection("musicItems");
