@@ -24,7 +24,12 @@ meteor
 
 * reset the database
 ```
-meteor reset       
+meteor reset
+```
+
+* package the application
+```
+meteor bundle
 ```
 
 ## links
