@@ -1,5 +1,5 @@
 Meteor.startup(function () {
-    var musicLabels = ["none", "Universal", "EMI", "Interspope", "Warner"];
+    var musicLabels = ["None", "Universal", "EMI", "Interspope", "Warner"];
 
     if (MusicLabels.find().count() === 0) {
         _.each(musicLabels, function (name) {

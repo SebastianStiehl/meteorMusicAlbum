@@ -18,6 +18,7 @@ var musicManager = {
 
         if (somethingToAdd) {
             artist.label = MusicLabels.findOne({"_id": musicLabel.val()});
+            artist.labelName = artist.label.name;
             MusicArtists.insert(artist);
         }
     }
@@ -51,15 +52,16 @@ Template.artistList.artists = function () {
         sortingOrder = Session.get("sortingOrder");
 
     if (sortingOrder === "name") {
-        option.sort = {name: 1};
+        option.sort = {name: 1, labelName: 1};
     } else if (sortingOrder === "nameRevers") {
-        option.sort = {name: -1};
+        option.sort = {name: -1, labelName: -1};
     } else if (sortingOrder === "label") {
-        option.sort = {labelName: 1};
+        option.sort = {labelName: 1, name: 1};
     } else if (sortingOrder === "labelRevers") {
-        option.sort = {labelName: -1};
+        option.sort = {labelName: -1, name: -1};
     }
 
+    console.log(option.sort);
 
     return MusicArtists.find({}, option);
 };

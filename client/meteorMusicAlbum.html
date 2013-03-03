@@ -49,15 +49,15 @@
 
 <template name="artistList">
     {{#each artists}}
-        <li class="list">{{name}} ({{label.name}}) <button>delete</button></li>
+        <li class="list">{{name}} ({{label.name}}) {{labelName}} <button>delete</button></li>
     {{/each}}
 </template>
 
 <template name="sorting">
     <select>
-        <option value="name">name [a-z]</option>
-        <option value="nameRevers">name [z-a]</option>
-        <option value="label">label [a-z]</option>
-        <option value="labelRevers">label [z-a]</option>
+        <option value="name">name [A-Za-z]</option>
+        <option value="nameRevers">name [z-aZ-A]</option>
+        <option value="label">label [A-Za-z]</option>
+        <option value="labelRevers">label [z-aZ-A]</option>
     </select>
 </template>
