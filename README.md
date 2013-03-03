@@ -20,7 +20,9 @@ cd ./meteorMusicAlbum
 meteor
 ```
 
-* reset database
+## commands
+
+* reset the database
 ```
 meteor reset
 ```
