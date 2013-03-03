@@ -1,52 +1,38 @@
 <head>
-    <title>music album app</title>
+    <title>music album</title>
 </head>
 
 <body>
-    <h1>music album app</h1>
+    <h1>music album</h1>
+    <section>
+        <h3>add artist</h3>
+        {{> addArtist}}
+    </section>
     <section>
         <h3>list</h3>
-        {{> musicList}}
-    </section>
-    <section id="remove">
-        <h3>remove</h3>
-        {{> removeMusic}}
-    </section>
-    <section>
-        <h3>add</h3>
-        {{> addMusic}}
+        <ul>
+            {{> artistList}}
+        </ul>
     </section>
 </body>
 
-<template name="removeMusic">
-    <input name="{{inputName}}" type="text" />
-    <button class="remove">remove</button>
-</template>
-
-<template name="addMusic">
+<template name="addArtist">
     <ul>
-        {{#eachKey itemAttributes}}
-            <li>{{> itemAttribute}}</li>
-        {{/eachKey}}
+        {{#each artistAttributes}}
+            <li>{{> artistAttribute}}</li>
+        {{/each}}
     </ul>
-    <button class="add">add</button>
 </template>
 
-<template name="itemAttribute">
+<template name="artistAttribute">
     <label>
-        <span>{{value.label}}:</span>
-        <input name="{{key}}" type="text" />
+        <span>{{label}}:</span>
+        <input name="{{attributeName}}" type="text" value="{{attributeValue}}" />
     </label>
 </template>
 
-<template name="musicList">
-    {{#each musicItems}}
-        <ul class="list">
-            {{#eachKey this}}
-                {{#if this.value.label}}
-                    <li><label><span>{{this.value.label}}</span>: <span class="{{this.key}}">{{this.value.value}}</span></label></li>
-                {{/if}}
-            {{/eachKey}}
-        </ul>
+<template name="artistList">
+    {{#each artists}}
+        <li class="list">{{name}}</li>
     {{/each}}
 </template>

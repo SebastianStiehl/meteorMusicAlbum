@@ -73,20 +73,21 @@ section {
 }
 
 ul {
-    margin-bottom: 10px;
     width: 400px;
 }
 
 .list {
     padding: 10px;;
-    background-color: #eee;
+    background-color: rgba(0, 152, 238, 0.1);
     border-radius: 4px;
+    margin-bottom: 10px;
 }
 
-.list, .list span {
+.list {
     cursor: pointer;
 }
 
 .list:hover {
-    background-color: rgba(148, 255, 0, 0.43);
+    background-color: rgba(0, 152, 238, 0.8);
+    color: #fff;
 }
