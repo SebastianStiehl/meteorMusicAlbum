@@ -27,12 +27,12 @@ meteor reset
 
 ## links
 
-meteor http://docs.meteor.com/
-underscorejs http://underscorejs.org/
-jquery http://api.jquery.com/
-mongodb http://docs.mongodb.org/manual/core/read-operations/
-lesscss http://www.lesscss.de/
-nodeJS http://nodejs.org/api/
+* meteor http://docs.meteor.com/
+* underscorejs http://underscorejs.org/
+* jquery http://api.jquery.com/
+* mongodb http://docs.mongodb.org/manual/core/read-operations/
+* lesscss http://www.lesscss.de/
+* nodeJS http://nodejs.org/api/
 
 ## tasks
 
