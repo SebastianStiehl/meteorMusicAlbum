@@ -10,6 +10,10 @@
     </section>
     <section>
         <h3>list</h3>
+        <div class="sort">
+            sorting:
+            {{> sorting}}
+        </div>
         <ul>
             {{> artistList}}
         </ul>
@@ -21,7 +25,19 @@
         {{#each artistAttributes}}
             <li>{{> artistAttribute}}</li>
         {{/each}}
+        <li>
+            <label>
+                <span>Music Label:</span>
+                <select>
+                    {{#each musicLabels}}
+                        <option value="{{_id}}">{{name}}</option>
+                    {{/each}}
+                </select>
+            </label>
+        </li>
+        <li><button class="add">add</button></li>
     </ul>
+
 </template>
 
 <template name="artistAttribute">
@@ -33,6 +49,15 @@
 
 <template name="artistList">
     {{#each artists}}
-        <li class="list">{{name}}</li>
+        <li class="list">{{name}} ({{label.name}}) <button>delete</button></li>
     {{/each}}
+</template>
+
+<template name="sorting">
+    <select>
+        <option value="name">name [a-z]</option>
+        <option value="nameRevers">name [z-a]</option>
+        <option value="label">label [a-z]</option>
+        <option value="labelRevers">label [z-a]</option>
+    </select>
 </template>

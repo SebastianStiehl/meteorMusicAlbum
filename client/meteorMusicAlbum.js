@@ -1,7 +1,9 @@
 var musicManager = {
-    addArtistFrom: function (inputs) {
+    addArtistFrom: function (template) {
         var artist = {},
-            somethingToAdd = false;
+            somethingToAdd = false,
+            inputs = template.findAll('input'),
+            musicLabel = $(template.find('select'));
 
         _.each(inputs, function(input) {
             var $input = $(input),
@@ -15,32 +17,56 @@ var musicManager = {
         });
 
         if (somethingToAdd) {
-            console.log("added" + JSON.stringify(artist));
+            artist.label = MusicLabels.findOne({"_id": musicLabel.val()});
             MusicArtists.insert(artist);
         }
     }
 };
 
+Session.set("sortingOrder", "name");
+
 Template.addArtist.artistAttributes = [
     {attributeName: "name", label: "Name", attributeValue: ""}
 ];
 
+Template.addArtist.musicLabels = function () {
+    return MusicLabels.find();
+};
+
 Template.addArtist.events({
-    'keypress input': function (event, template) {
-        if (event.which === 13) {
-            var inputs = template.findAll('input');
-            musicManager.addArtistFrom(inputs);
-        }
+    'click button.add': function (event, template) {
+        musicManager.addArtistFrom(template);
     }
 });
 
 Template.artistList.events({
-    "click li": function () {
+    "click button": function () {
         var artist = this;
-        alert("This is '" + artist.name + "'");
+        MusicArtists.remove({"_id": artist["_id"]});
     }
 });
 
 Template.artistList.artists = function () {
-    return MusicArtists.find();
+    var option = {},
+        sortingOrder = Session.get("sortingOrder");
+
+    if (sortingOrder === "name") {
+        option.sort = {name: 1};
+    } else if (sortingOrder === "nameRevers") {
+        option.sort = {name: -1};
+    } else if (sortingOrder === "label") {
+        option.sort = {labelName: 1};
+    } else if (sortingOrder === "labelRevers") {
+        option.sort = {labelName: -1};
+    }
+
+
+    return MusicArtists.find({}, option);
 };
+
+Template.sorting.events({
+    "change select": function (event, template) {
+        var sortingOrder = $(template.find("select")).val();
+        Session.set("sortingOrder", sortingOrder);
+    }
+});
