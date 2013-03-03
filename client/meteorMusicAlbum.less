@@ -1,4 +1,17 @@
-@mainColor: rgb(0, 152, 238);
+@mainColor: #acb4ba;
+@secondColor: #a0d519;
+@darkFontColor: #333;
+@lightFontColor: #fff;
+
+
+/* mixins */
+
+.color-contrast (@color) {
+  @fadedIn: fadein(@color, 30%);
+  background-color: @color;
+  color: contrast(@color, @lightFontColor, @darkFontColor);
+  border: 1px solid @fadedIn;
+}
 
 /* reset */
 /* http://meyerweb.com/eric/tools/css/reset/
@@ -18,79 +31,79 @@ article, aside, canvas, details, embed,
 figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
+
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
-    display: block;
-}
-body {
-    line-height: 1;
-}
-ol, ul {
-    list-style: none;
-}
-blockquote, q {
-    quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-    content: '';
-    content: none;
-}
-table {
-    border-collapse: collapse;
-    border-spacing: 0;
+  display: block;
 }
 
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
 
 /* styles */
 
 html {
-    font-family: verdana, arial, sans-serif;
+  font-family: verdana, arial, sans-serif;
+  color: @darkFontColor;
 }
 
 h1 {
-    font-size: 1.5em;
-    margin: 10px 0 20px 0;
-}
-
-body {
-    margin: 0 10px;
+  font-size: 1.5em;
+  margin: 0;
+  padding: 15px 10px;
+  border-bottom: 2px solid @mainColor;
 }
 
 label > span {
-    min-width: 100px;
-    display: inline-block;
+  min-width: 100px;
+  display: inline-block;
 }
 
 section {
-    margin-left: 20px;
+  margin-left: 20px;
 }
 
 ul li {
-    max-width: 400px;
+  width: 60%;
+  margin-left: 20px;
 }
 
 .list {
-    padding: 10px;;
-    background-color: fadeout(@mainColor, 80%);
-    border: 1px solid fadeout(@mainColor, 70%);
-    border-radius: 4px;
-    margin-bottom: 10px;
-}
+  .color-contrast(fadeout(@mainColor, 70%));
+  padding: 10px;
+  margin-bottom: 5px;
+  cursor: pointer;
 
-.list {
-    cursor: pointer;
 }
 
 .list:hover {
-    background-color: @mainColor;
-    color: #fff;
+  .color-contrast(@mainColor);
 }
