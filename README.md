@@ -4,7 +4,7 @@
 
 ## setup
 
-* install meteor:
+* install meteor
 ```
 curl https://install.meteor.com | sh
 ```
@@ -20,9 +20,16 @@ cd ./meteorMusicAlbum
 meteor
 ```
 
-* reset database
+## commands
+
+* reset the database
 ```
 meteor reset
+```
+
+* package the application
+```
+meteor bundle
 ```
 
 ## links
