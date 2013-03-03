@@ -1,5 +1,7 @@
 # meteorMusicAlbum - coding dojo II
 
+
+
 ## setup
 
 * install meteor:
@@ -23,8 +25,17 @@ meteor
 meteor reset
 ```
 
+## links
+
+meteor http://docs.meteor.com/
+underscorejs http://underscorejs.org/
+jquery http://api.jquery.com/
+mongodb http://docs.mongodb.org/manual/core/read-operations/
+lesscss http://www.lesscss.de/
+nodeJS http://nodejs.org/api/
+
 ## tasks
 
-* delete a artist (template)
-* add music labels (collection)
+* delete a artist (keywords: template, event)
 * order artist list (session)
+* add music labels (collection)
