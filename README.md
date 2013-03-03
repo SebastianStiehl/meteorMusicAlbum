@@ -4,7 +4,7 @@
 
 ## setup
 
-* install meteor:
+* install meteor
 ```
 curl https://install.meteor.com | sh
 ```
@@ -24,7 +24,7 @@ meteor
 
 * reset the database
 ```
-meteor reset
+meteor reset       
 ```
 
 ## links
